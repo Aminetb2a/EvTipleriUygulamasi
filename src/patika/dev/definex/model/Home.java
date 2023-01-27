@@ -19,10 +19,4 @@ public abstract class Home {
     private Integer kitchenNumber;
     private Integer bathroomNumber;
 
-    @Getter
-    public static Integer totalHomes = 0;
-
-    {
-        totalHomes++;
-    }
 }

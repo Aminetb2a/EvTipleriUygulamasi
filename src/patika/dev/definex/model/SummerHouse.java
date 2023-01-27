@@ -8,10 +8,5 @@ import lombok.experimental.SuperBuilder;
 public class SummerHouse extends Home {
     private Boolean hasBalcony;
     private Boolean hasTerrace;
-    @Getter
-    private static Integer counter = 0;
 
-    {
-        counter++;
-    }
 }

@@ -12,10 +12,4 @@ public class Villa extends Home {
     private Boolean hasGarden;
     private Boolean hasLaundryRoom;
 
-    @Getter
-    private static Integer counter = 0;
-
-    {
-        counter++;
-    }
 }
