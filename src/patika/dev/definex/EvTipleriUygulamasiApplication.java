@@ -1,13 +1,14 @@
 package patika.dev.definex;
 
 
-import patika.dev.definex.service.BaseService;
+import patika.dev.definex.service.HomesService;
 
 public class EvTipleriUygulamasiApplication {
 
     public static void main(String[] args) {
 
-        BaseService service = new BaseService();
+        HomesService service = new HomesService();
+        service.generateData();
 
     }
 
