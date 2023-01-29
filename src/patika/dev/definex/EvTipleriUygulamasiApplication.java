@@ -31,7 +31,7 @@ public class EvTipleriUygulamasiApplication {
         // combine all houses in a list
         List<Home> homesList = service.getAllHomes(houseList, villaList, summerHouseList);
 
-        // uncomment if you want to see the houses details
+        // if you want to see the houses details uncomment the following line
         //print.printHouseDetails(houseList, villaList, summerHouseList);
 
         //print details needed

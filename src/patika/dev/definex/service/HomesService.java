@@ -83,10 +83,10 @@ public class HomesService extends BaseService {
     }
 
     /**
-     * This method returns the average area of a list of sumer houses.
+     * This method returns the average area of a list of summer houses.
      *
      * @param summerHouseList a list of SummerHouse objects
-     * @return The average area of the sumer houses in the list.
+     * @return The average area of the summer houses in the list.
      */
     public Double getSummerHousesAverageArea(List<SummerHouse> summerHouseList) {
         return getAverageArea(summerHouseList);
