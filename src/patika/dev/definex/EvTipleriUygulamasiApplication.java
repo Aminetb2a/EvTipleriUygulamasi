@@ -5,7 +5,7 @@ import patika.dev.definex.model.Home;
 import patika.dev.definex.model.House;
 import patika.dev.definex.model.SummerHouse;
 import patika.dev.definex.model.Villa;
-import patika.dev.definex.repos.Repository;
+import patika.dev.definex.service.GeneratorService;
 import patika.dev.definex.service.HomesService;
 import patika.dev.definex.service.PrintService;
 
@@ -21,7 +21,7 @@ public class EvTipleriUygulamasiApplication {
 
         PrintService print = new PrintService();
         HomesService service = new HomesService();
-        Repository generatorService = new Repository();
+        GeneratorService generatorService = new GeneratorService();
         // generate 7 houses
         List<House> houseList = generatorService.generateHouses(7);
         // generate 5 villas
