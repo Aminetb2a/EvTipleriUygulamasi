@@ -20,6 +20,13 @@ public class Repository {
     private final static int minPrice = 10000;
     private final static int maxPrice = 9999999;
     private final static Random rand = new Random();
+
+    /**
+     * It generates a list of houses with random fields values
+     *
+     * @param houseNumber The number of houses to be generated
+     * @return A list of House object
+     */
     public List<House> generateHouses(Integer houseNumber) {
         return Stream.generate(() ->
                 House.builder()
@@ -36,6 +43,12 @@ public class Repository {
         ).limit(houseNumber).collect(Collectors.toList());
     }
 
+    /**
+     * It generates a list of villas with random fields values
+     *
+     * @param villaNumber The number of villas to be generated
+     * @return A list of House object
+     */
     public List<Villa> generateVillas(Integer villaNumber) {
         return Stream.generate(() ->
                 Villa.builder()
@@ -52,6 +65,12 @@ public class Repository {
         ).limit(villaNumber).collect(Collectors.toList());
     }
 
+    /**
+     * It generates a list of summer houses with random fields values
+     *
+     * @param summerHouseNumber The number of summer houses to be generated
+     * @return A list of House object
+     */
     public List<SummerHouse> generateSummerHouses(Integer summerHouseNumber) {
         return Stream.generate(() ->
                 SummerHouse.builder()
@@ -67,6 +86,5 @@ public class Repository {
                         .build()
         ).limit(summerHouseNumber).collect(Collectors.toList());
     }
-
 
 }
