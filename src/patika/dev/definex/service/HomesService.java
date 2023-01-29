@@ -7,7 +7,6 @@ import patika.dev.definex.model.SummerHouse;
 import patika.dev.definex.model.Villa;
 
 import java.math.BigDecimal;
-import java.util.Collection;
 import java.util.List;
 
 @NoArgsConstructor
@@ -19,7 +18,7 @@ public class HomesService extends BaseService {
      * @param homesList A collection of Home objects.
      * @return The total price of all the homes in the collection.
      */
-    public BigDecimal getAllHousesTotalPrice(Collection<? extends Home> homesList) {
+    public BigDecimal getAllHousesTotalPrice(List<Home> homesList) {
         return getTotalPrice(homesList);
     }
 
@@ -59,7 +58,7 @@ public class HomesService extends BaseService {
      * @param homesList a collection of homes
      * @return The average area of all the houses in the collection.
      */
-    public Double getAllHousesAverageArea(Collection<? extends Home> homesList) {
+    public Double getAllHousesAverageArea(List<Home> homesList) {
         return getAverageArea(homesList);
     }
 

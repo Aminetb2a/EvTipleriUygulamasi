@@ -16,7 +16,7 @@ public class BaseService {
      *
      * @return A list of all the homes in the values array.
      */
-    public List<Home> getAllHomes(Collection<? extends Home>... homes) {
+    public List<Home> getAllHomes(List<? extends Home>... homes) {
         return Stream.of(homes)
                 .flatMap(Collection::parallelStream)
                 .collect(Collectors.toList());
@@ -28,7 +28,7 @@ public class BaseService {
      * @param homeList a collection of Home objects.
      * @return A BigDecimal
      */
-    public BigDecimal getTotalPrice(Collection<? extends Home> homeList) {
+    public <T extends Home> BigDecimal getTotalPrice(List<T> homeList) {
         return homeList.stream()
                 .map(Home::getPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
@@ -40,13 +40,14 @@ public class BaseService {
      * @param homeList a collection of Home objects
      * @return A Double
      */
-    public Double getAverageArea(Collection<? extends Home> homeList) {
+    public <T extends Home> Double getAverageArea(List<T> homeList) {
         return homeList.stream()
                 .mapToDouble(Home::getArea)
-                .sum() / homeList.size();
+                .average().getAsDouble();
     }
 
     /**
+     * This method can be more generic than it is.
      * It takes a collection of homes, a room number and a salon number as parameters and returns a
      * list of homes that have the same room and salon number as the parameters
      *
@@ -55,7 +56,7 @@ public class BaseService {
      * @param salonNumber The number of living rooms in the house.
      * @return A list of homes that have the same number of rooms and salons.
      */
-    public List<Home> getHouseListByRoomAndSalonNumber(Collection<? extends Home> homeList, Integer roomNumber, Integer salonNumber) {
+    public List<Home> filterHouseListByRoomAndSalonNumber(List<? extends Home> homeList, Integer roomNumber, Integer salonNumber) {
         return homeList.stream()
                 .filter(home -> home.getRoomNumber().equals(roomNumber))
                 .filter(home -> home.getLivingRoomNumber().equals(salonNumber))
