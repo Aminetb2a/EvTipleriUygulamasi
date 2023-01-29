@@ -6,8 +6,16 @@ import patika.dev.definex.model.House;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class BaseService {
+
+    public List<Home> getAllHomes(Collection<? extends Home>... values) {
+        return Stream.of(values)
+                .flatMap(Collection::parallelStream)
+                .collect(Collectors.toList());
+    }
 
     public BigDecimal getTotalPrice(Collection<? extends Home> homeList) {
         return homeList.stream()

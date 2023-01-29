@@ -5,58 +5,46 @@ import patika.dev.definex.model.Home;
 import patika.dev.definex.model.House;
 import patika.dev.definex.model.SummerHouse;
 import patika.dev.definex.model.Villa;
-import patika.dev.definex.repos.Repository;
 
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @NoArgsConstructor
 public class HomesService extends BaseService {
 
-    private List<Home> homesList;
-    private List<House> houseList;
-    private List<Villa> villaList;
-    private List<SummerHouse> summerHouseList;
 
-    public void generateData() {
-        Repository generatorService = new Repository();
-        villaList = generatorService.generateVillas(5);
-        houseList = generatorService.generateHouses(7);
-        summerHouseList = generatorService.generateSummerHouses(3);
-        homesList = Stream.of(houseList, villaList, summerHouseList)
-                .flatMap(Collection::parallelStream)
-                .collect(Collectors.toList());
-    }
-
-    public Double getAllHousesAverageArea() {
-        return getAverageArea(homesList);
-    }
-
-
-    public Double getVillasAverageArea() {
-        return getAverageArea(villaList);
-    }
-
-    public Double getSummerHousesAverageArea() {
-        return getAverageArea(summerHouseList);
-    }
-
-    public BigDecimal getAllHousesTotalPrice() {
+    public BigDecimal getAllHousesTotalPrice(Collection<? extends Home> homesList) {
         return getTotalPrice(homesList);
     }
 
-    public BigDecimal getHousesTotalPrice() {
+    public BigDecimal getHousesTotalPrice(List<House> houseList) {
         return getTotalPrice(houseList);
     }
 
-    public BigDecimal getVillasTotalPrice() {
+    public BigDecimal getVillasTotalPrice(List<Villa> villaList) {
         return getTotalPrice(villaList);
     }
 
-    public BigDecimal getSummerHousesTotalPrice() {
+    public BigDecimal getSummerHousesTotalPrice(List<SummerHouse> summerHouseList) {
         return getTotalPrice(summerHouseList);
     }
+
+    public Double getAllHousesAverageArea(Collection<? extends Home> homesList) {
+        return getAverageArea(homesList);
+    }
+
+    public Double getHousesAverageArea(List<House> houseList) {
+        return getAverageArea(houseList);
+    }
+
+
+    public Double getVillasAverageArea(List<Villa> villaList) {
+        return getAverageArea(villaList);
+    }
+
+    public Double getSummerHousesAverageArea(List<SummerHouse> summerHouseList) {
+        return getAverageArea(summerHouseList);
+    }
+
 }
