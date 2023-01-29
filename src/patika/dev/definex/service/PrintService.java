@@ -13,11 +13,18 @@ public class PrintService {
     private String leftAlignFormat = "| %-15s | %,-15.3f | %-15.3f |%n";
 
     public void printHeader() {
+        System.out.println("\n\n\n");
         printLine();
         System.out.format("|                Ev Tipleri Uygulamasi                |%n");
         printLine();
         System.out.format("| Home Type       | Total price     | Average Area    |%n");
         printLine();
+    }
+
+    public void printFooter() {
+        System.out.format("|                                                     |%n");
+        printLine();
+        System.out.println("\n\n\n");
     }
 
     public void printLine() {
