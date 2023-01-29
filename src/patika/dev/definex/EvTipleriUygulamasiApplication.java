@@ -40,7 +40,11 @@ public class EvTipleriUygulamasiApplication {
         print.printHomeDetails("Villa", service.getVillasTotalPrice(villaList), service.getVillasAverageArea(villaList));
         print.printHomeDetails("Summer House", service.getSummerHousesTotalPrice(summerHouseList), service.getSummerHousesAverageArea(summerHouseList));
         print.printHomeDetails("Total", service.getAllHousesTotalPrice(homesList), service.getAllHousesAverageArea(summerHouseList));
+        print.printFooter();
 
+        // print filtered houses by room number and living room
+        System.out.println("|                   House Filtering                  |");
+        print.printHouseDetails(service.getHouseListByRoomAndSalonNumber(homesList, 3, 1));
     }
 
 }
