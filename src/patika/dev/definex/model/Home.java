@@ -10,12 +10,13 @@ import java.math.BigDecimal;
 @ToString
 @SuperBuilder
 public abstract class Home {
-    private Integer id;
+
+    private Long id;
     private Double area;
     private BigDecimal price;
     private Integer roomNumber;
-    private Integer floorNumber;
     private Integer salonNumber;
+    private Integer floorNumber;
     private Integer kitchenNumber;
     private Integer bathroomNumber;
 

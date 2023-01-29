@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 public class Repository {
     private final static int minRoom = 1;
     private final static int maxRoom = 5;
-    private final static int minSalon = 0;
+    private final static int minSalon = 1;
     private final static int maxSalon = 2;
     private final static double minArea = 50.0;
     private final static double maxArea = 599.0;
@@ -23,7 +23,7 @@ public class Repository {
     public List<House> generateHouses(Integer houseNumber) {
         return Stream.generate(() ->
                 House.builder()
-                        .id(rand.nextInt(houseNumber))
+                        .id(rand.nextLong())
                         .area(rand.nextDouble(maxArea - minArea + 1) + minArea)
                         .roomNumber(rand.nextInt(maxRoom - minRoom + 1) + minRoom)
                         .salonNumber(rand.nextInt(maxSalon - minSalon + 1) + minSalon)
@@ -35,7 +35,7 @@ public class Repository {
     public List<Villa> generateVillas(Integer villaNumber) {
         return Stream.generate(() ->
                 Villa.builder()
-                        .id(rand.nextInt(villaNumber))
+                        .id(rand.nextLong())
                         .area(rand.nextDouble(maxArea - minArea + 1) + minArea)
                         .roomNumber(rand.nextInt(maxRoom - minRoom + 1) + minRoom)
                         .salonNumber(rand.nextInt(maxSalon - minSalon + 1) + minSalon)
@@ -47,7 +47,7 @@ public class Repository {
     public List<SummerHouse> generateSummerHouses(Integer summerHouseNumber) {
         return Stream.generate(() ->
                 SummerHouse.builder()
-                        .id(rand.nextInt(summerHouseNumber))
+                        .id(rand.nextLong())
                         .area(rand.nextDouble(maxArea - minArea + 1) + minArea)
                         .roomNumber(rand.nextInt(maxRoom - minRoom + 1) + minRoom)
                         .salonNumber(rand.nextInt(maxSalon - minSalon + 1) + minSalon)
