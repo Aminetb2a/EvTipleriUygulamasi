@@ -11,6 +11,8 @@ import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static patika.dev.definex.HouseType.*;
+
 public class GeneratorService implements Repository {
 
     private final static int minRoom = 1;
@@ -33,7 +35,7 @@ public class GeneratorService implements Repository {
         return Stream.generate(() ->
                 House.builder()
                         .id(rand.nextLong())
-                        .type("House")
+                        .type(HOUSE)
                         .area(rand.nextDouble(maxArea - minArea + 1) + minArea)
                         .roomNumber(rand.nextInt(maxRoom - minRoom + 1) + minRoom)
                         .livingRoomNumber(rand.nextInt(maxSalon - minSalon + 1) + minSalon)
@@ -55,7 +57,7 @@ public class GeneratorService implements Repository {
         return Stream.generate(() ->
                 Villa.builder()
                         .id(rand.nextLong())
-                        .type("Villa")
+                        .type(VILLA)
                         .area(rand.nextDouble(maxArea - minArea + 1) + minArea)
                         .roomNumber(rand.nextInt(maxRoom - minRoom + 1) + minRoom)
                         .livingRoomNumber(rand.nextInt(maxSalon - minSalon + 1) + minSalon)
@@ -77,7 +79,7 @@ public class GeneratorService implements Repository {
         return Stream.generate(() ->
                 SummerHouse.builder()
                         .id(rand.nextLong())
-                        .type("Summer House")
+                        .type(SUMMER_HOUSE)
                         .area(rand.nextDouble(maxArea - minArea + 1) + minArea)
                         .roomNumber(rand.nextInt(maxRoom - minRoom + 1) + minRoom)
                         .livingRoomNumber(rand.nextInt(maxSalon - minSalon + 1) + minSalon)
