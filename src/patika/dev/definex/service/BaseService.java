@@ -1,7 +1,6 @@
 package patika.dev.definex.service;
 
 import patika.dev.definex.model.Home;
-import patika.dev.definex.model.House;
 
 import java.math.BigDecimal;
 import java.util.Collection;
@@ -29,8 +28,11 @@ public class BaseService {
                 .sum() / homeList.size();
     }
 
-    public List<House> getHouseListByRoomAndSalonNumber(Integer roomNumber, Integer salonNumber) {
-        return null;
+    public List<Home> getHouseListByRoomAndSalonNumber(Collection<? extends Home> homeList, Integer roomNumber, Integer salonNumber) {
+        return homeList.stream()
+                .filter(home -> home.getRoomNumber().equals(roomNumber))
+                .filter(home -> home.getLivingRoomNumber().equals(salonNumber))
+                .collect(Collectors.toList());
     }
 
 }
