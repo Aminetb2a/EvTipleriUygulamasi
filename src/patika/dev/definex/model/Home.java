@@ -12,10 +12,11 @@ import java.math.BigDecimal;
 public abstract class Home {
 
     private Long id;
+    private String type;
     private Double area;
     private BigDecimal price;
     private Integer roomNumber;
-    private Integer salonNumber;
+    private Integer livingRoomNumber;
     private Integer floorNumber;
     private Integer kitchenNumber;
     private Integer bathroomNumber;
